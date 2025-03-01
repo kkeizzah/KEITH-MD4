@@ -6,9 +6,9 @@ const session = process.env.SESSION || '';
 
 const prefix = process.env.PREFIX || '';
 const mycode = process.env.CODE || "254";
-const author = process.env.STICKER_AUTHOR || 'Keith';
+const author = process.env.OWNER_NAME || 'Keith';
 const packname = process.env.PACKNAME || 'keith';
-const dev = process.env.DEV || '254748387615';
+const dev = process.env.OWNER_NUMBER || '254748387615';
 const DevKeith = dev.split(",");
 const botname = process.env.BOTNAME || 'KEITH-MD';
 const mode = process.env.MODE || 'public';
@@ -16,7 +16,10 @@ const gcpresence = process.env.GC_PRESENCE || 'false';
 const antionce = process.env.ANTIVIEWONCE || 'true';
 const sessionName = "session";
 const presence = process.env.WA_PRESENCE || 'online';
-const antispam = process.env.ANTISPAM || 'true';
+const herokuapikey = process.env.HEROKU_API_KEY || '';
+const herokuAppname = process.env.HEROKU_APP_NAME || '';
+const url = process.env.URL || 'https://files.catbox.moe/mikdi0.jpg';
+const gurl = process.env.GURL || 'https://whatsapp.com/channel/0029Vaan9TF9Bb62l8wpoD47';
 const reactemoji = process.env.EMOJI || '💚';
 const antitag = process.env.ANTITAG || 'true';
 const groupControl = process.env.GROUP_CONTROL || 'true';
@@ -35,7 +38,6 @@ module.exports = {
   autoread,
   botname,
   reactemoji,
-  antispam,
   autobio,
   antilink: groupControl,  // Use groupControl for antilink
   antibad: groupControl,   // Use groupControl for antibad
@@ -46,6 +48,10 @@ module.exports = {
   anticallmsg,
   mycode,
   author,
+  herokuAppname,
+  herokuapikey,
+  url,
+  gurl,
   packname,
   dev,
   DevKeith,
