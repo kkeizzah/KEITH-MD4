@@ -16,13 +16,14 @@ const util = require("util");
 const speed = require("performance-now");
 
 const {
-  smsg, formatp, tanggal, formatDate, getTime, sleep, clockString,
+  smsgsmsg, formatp, tanggal, formatDate, getTime, sleep, clockString,
   fetchJson, getBuffer, jsonformat, antispam, generateProfilePicture, parseMention,
   getRandom, fetchBuffer,
 } = require("./lib/botFunctions.js");
 
 const { TelegraPh, UploadFileUgu } = require("./lib/toUrl");
 const uploadtoimgur = require("./lib/Imgur");
+const { sendReply, sendMediaMessage } = require("./lib/context");
 const ytmp3 = require("./lib/ytmp3");
 const path = require("path");
 const { commands, totalCommands } = require("./commandHandler");
@@ -35,7 +36,7 @@ const daddy = "254748387615@s.whatsapp.net";
 
 const {
   autoview, autoread, botname, autobio, mode, anticallmsg, reactemoji, prefix, presence,
-  mycode, author, antibad, packname, anticall, dev, antilink, gcpresence, antionce, antitag, antidelete, autolike,
+  mycode, author, antibad, packname, url, gurl, herokuAppname, herokuapikey, anticall, dev, antilink, gcpresence, antionce, antitag, antidelete, autolike,
 } = require("./settings");
 
 const groupEvents = require("./groupEvents.js");
@@ -281,7 +282,7 @@ async function startKeith() {
       if (command) {
         const commandObj = commands[command];
         if (commandObj) {
-          await commandObj.execute({ client, m, text, totalCommands, prefix, groupAdmin, getGroupAdmins, args, groupName, groupMetadata, participants, isOwner, pushname, botNumber, itsMe, store, isAdmin, isBotAdmin });
+          await commandObj.execute({ fetchJson, generateProfilePicture, client, m, mode,mime, Owner, qmsg, msgKeith, DevKeith, Tag, generateProfilePicture, text, totalCommands, botname, url, sendReply, sendMediaMessage, gurl, prefix, groupAdmin, getGroupAdmins, args, groupName, groupMetadata, herokuAppname, herokuapikey, packname, author, participants, isOwner, pushname, botNumber, itsMe, store, isAdmin, isBotAdmin });
         }
       }
     } catch (err) {
@@ -352,9 +353,9 @@ async function startKeith() {
         return "Good night 😴";
       };
 
-      const message = `Holla, ${getGreeting()},\n\n╭═══『𝐊𝐞𝐢𝐭𝐡 𝐌𝐝 𝐢𝐬 𝐜𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝』══⊷ \n` +
-        `║ ʙᴏᴛ ɴᴀᴍᴇ ${botname}\n` +
-        `║ �ᴍᴏᴅᴇ ${mode}\n` +
+      const message = `Holla, ${getGreeting()},\n\n╭═══『 ${botname} 𝐢𝐬 𝐜𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝』══⊷ \n` +
+        `║ ʙᴏᴛ ᴏᴡɴᴇʀ ${author}\n` +
+        `║ ᴍᴏᴅᴇ ${mode}\n` +
         `║ ᴘʀᴇғɪx [  ${prefix} ]\n` +
         `║ ᴛᴏᴛᴀʟ ᴘʟᴜɢɪɴs ${totalCommands}\n` +
         `║ ᴛɪᴍᴇ ${DateTime.now().setZone("Africa/Nairobi").toLocaleString(DateTime.TIME_SIMPLE)}\n` +
